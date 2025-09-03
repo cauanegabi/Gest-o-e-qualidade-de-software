@@ -1,46 +1,48 @@
 import java.util.ArrayList;
 
 public class Playlist {
-    private ArrayList<Musica> playlist;
+    private ArrayList<Musica> musicas;
 
-    // Construtor
     public Playlist() {
-        this.playlist = new ArrayList<>();
+        this.musicas = new ArrayList<>();
     }
 
-    // Adicionar música
     public void adicionarMusica(Musica musica) {
-        playlist.add(musica);
+        musicas.add(musica);
+        System.out.println("Música adicionada: " + musica.getTitulo());
     }
 
-    // Remover música pelo título
-    public boolean removerMusica(String titulo) {
-        for (Musica musica : playlist) {
-            if (musica.getTitulo().equalsIgnoreCase(titulo)) {
-                playlist.remove(musica);
-                return true;
+    public void removerMusica(String titulo) {
+        boolean removida = false;
+        for (Musica m : musicas) {
+            if (m.getTitulo().equalsIgnoreCase(titulo)) {
+                musicas.remove(m);
+                System.out.println("Música removida: " + m.getTitulo());
+                removida = true;
+                break;
             }
         }
-        return false;
+        if (!removida) {
+            System.out.println("Música não encontrada: " + titulo);
+        }
     }
 
-    // Listar todas as músicas
     public void listarMusicas() {
-        if (playlist.isEmpty()) {
-            System.out.println("A playlist está vazia!");
+        if (musicas.isEmpty()) {
+            System.out.println("Playlist vazia!");
         } else {
-            for (Musica musica : playlist) {
-                System.out.println(musica);
+            System.out.println("Lista de músicas:");
+            for (Musica m : musicas) {
+                System.out.println(m);
             }
         }
     }
 
-    // Exibir duração total da playlist
-    public void exibirDuracaoTotal() {
-        double duracaoTotal = 0;
-        for (Musica musica : playlist) {
-            duracaoTotal += musica.getDuracao();
+    public double duracaoTotal() {
+        double total = 0;
+        for (Musica m : musicas) {
+            total += m.getDuracao();
         }
-        System.out.println("Duração total da playlist: " + duracaoTotal + " minutos.");
+        return total;
     }
 }
