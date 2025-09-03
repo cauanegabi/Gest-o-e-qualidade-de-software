@@ -9,10 +9,10 @@ public class Main {
 
         do {
             System.out.println("\n MENU - GERENCIAMENTO DE NOTAS ");
-            System.out.println("1️ Adicionar aluno e notas");
-            System.out.println("2️ Exibir notas de um aluno");
-            System.out.println("3️ Calcular média de um aluno");
-            System.out.println("0️ Sair");
+            System.out.println("1 Adicionar aluno e notas");
+            System.out.println("2 Exibir notas de um aluno");
+            System.out.println("3 Calcular média de um aluno");
+            System.out.println("0 Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
